@@ -49,5 +49,6 @@ Here's a simplified version of the code with comments to explain its functionali
 ```
 
 # References
+- [Brainfuck](http://brainfuck.org/)
 - Brainfuck [Wikipedia](https://en.wikipedia.org/wiki/Brainfuck)
 - Basics of Brainfuck by roachhd [Github Gist](https://gist.github.com/roachhd/dce54bec8ba55fb17d3a)
