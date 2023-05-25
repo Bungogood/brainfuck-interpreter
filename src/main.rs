@@ -1,3 +1,7 @@
+use clap::{Command, Arg};
+use std::fs::File;
+use std::io::Read;
+
 struct Interpreter {
     loop_stack: Vec<usize>,
     pc: usize,
@@ -80,5 +84,24 @@ impl Interpreter {
 }
 
 fn main() {
-    Interpreter::new().execute("++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>."); // Hello World
+    let matches = Command::new("Brainfuck Interpreter")
+        .version("1.0")
+        .author("Your Name")
+        .about("A simple Brainfuck interpreter implemented in Rust")
+        .arg(
+            Arg::new("source")
+                .help("Sets the Brainfuck source code or input file")
+                .required(true)
+                .index(1),
+        )
+        .get_matches();
+
+    // Get the source code or input file path from command-line arguments
+    let source = matches.get_one::<String>("source").expect("Require Source");
+
+    let mut file = File::open(source).expect("Failed to open input file");
+    let mut source_code = String::new();
+    file.read_to_string(&mut source_code).expect("Failed to read input file");
+
+    Interpreter::new().execute(&source_code);
 }
