@@ -1,5 +1,7 @@
 # Brainfuck Interpreter
 
+[![Build](../../actions/workflows/build.yaml/badge.svg)](../../actions/workflows/build.yaml)
+
 This is a simple Brainfuck interpreter implemented in Rust. Brainfuck is an esoteric programming language with a minimalistic set of commands. Despite its simplicity, it is Turing-complete, meaning it can compute any computable function.
 
 ## Basics
